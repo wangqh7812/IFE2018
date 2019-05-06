@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>纯CSS实现猫笑起来的动画</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #d69a44;
+        }
+
+        .face {
+            position: absolute;
+            left: 50%;
+            margin-left: -175px;
+            top: 40px;
+            width: 350px;
+            height: 250px;
+            border-radius: 50% 50% 30% 30%;
+            border: 2px solid #3f200b;
+            z-index: 10;
+            background-color: #fbf8f1;
+            overflow: hidden;
+        }
+
+        .ear-wrap {
+            position: absolute;
+            width: 300px;
+            left: 50%;
+            margin-left: -150px;
+            top: 20px;
+        }
+
+        .ear-left, .ear-right {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            border: 2px solid #000000;
+            transition: 0.8s;
+        }
+
+        .ear-left {
+            border-radius: 100% 10% 50% 0;
+            background: #fbf8f1;
+        }
+
+        .ear-right {
+            left: auto;
+            right: 0;
+            border-radius: 10% 100% 0 50%;
+            background: #f1ac2b;
+        }
+
+        .wrap:hover .ear-left {
+            transform: rotate(-30deg);
+            transition: 0.8s;
+        }
+
+        .wrap:hover .ear-right {
+            transform: rotate(30deg);
+            transition: 0.8s;
+        }
+
+        .hair {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: 50%;
+            margin-left: 50px;
+            margin-top: -40px;
+            background-color: #f5b323;
+            border-radius: 50%;
+        }
+
+        .eye-wrap {
+            position: absolute;
+            width: 280px;
+            height: 70px;
+            top: 90px;
+            left: 50%;
+            margin-left: -140px;
+            overflow: hidden;
+        }
+
+        .eye-left, .eye-right {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            /*transition: 0.8s;*/
+        }
+
+        .eye-right {
+            left: auto;
+            right: 0;
+        }
+
+        .eye-circle {
+            position: absolute;
+            width: 100px;
+            height: 80px;
+            border: 2px solid #482507;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 50% 50% 40% 40%;
+        }
+
+        .eye-core {
+            position: absolute;
+            height: 55px;
+            width: 46px;
+            border-radius: 50% 50% 50% 50%;
+            background: #000;
+            left: 50%;
+            margin-left: -23px;
+            transition: 0.8s;
+            line-height: 0;
+        }
+
+        .wrap:hover .eye-core {
+            border-radius: 50% 50% 60% 60%;
+            transition: 0.8s;
+        }
+
+        .eye-bottom {
+            height: 60px;
+            width: 100px;
+            border-radius: 40% 40% 50% 50%;
+            position: absolute;
+            margin-top: 48px;
+            border-top: 2px solid #46240b;
+            background: #f6f7f2;
+            transition: 0.8s;
+        }
+
+        .wrap:hover .eye-bottom {
+            transform: matrix(1, 0, 0, 1, 0, -20);
+            transition: 0.8s;
+        }
+
+        .face-red {
+            position: absolute;
+            height: 20px;
+            width: 70px;
+            top: 51px;
+            left: 18px;
+            border-radius: 50% 50% 50% 50%;
+            background: #e85a5e;
+            opacity: 0.0;
+            transition: 0.8s;
+        }
+
+        .wrap:hover .face-red {
+            opacity: 0.8;
+            transition: 0.8s;
+        }
+
+        .nose {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            border-bottom: 8px solid #000;
+            border-radius: 0 0 50% 50%;
+            top: 154px;
+            left: 50%;
+            margin-left: -10px;
+        }
+
+        .mouth-wrap {
+            position: absolute;
+            width: 80px;
+            height: 20px;
+            top: 164px;
+            left: 50%;
+            margin-left: -40px;
+            overflow: hidden;
+        }
+
+        .mouth-left {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-bottom: 4px solid #000;
+            border-right: 4px solid #000;
+            border-radius: 0 40% 50% 20%;
+            margin-top: -26px;
+            left: 0;
+            transition: 0.8s;
+        }
+
+        .mouth-right {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-bottom: 4px solid #000;
+            border-left: 4px solid #000;
+            border-radius: 40% 0 20% 50%;
+            margin-top: -26px;
+            left: auto;
+            right: 0;
+            transition: 0.8s;
+        }
+
+        .wrap:hover .mouth-left {
+            border-radius: 0 10% 50% 50%;
+            transition: 0.8s;
+        }
+
+        .wrap:hover .mouth-right {
+            border-radius: 10% 0 50% 50%;
+            transition: 0.8s;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="face">
+            <div class="hair"></div>
+            <div class="eye-wrap">
+                <div class="eye-left">
+                    <div class="eye-circle">
+                        <div class="eye-core"></div>
+                    </div>
+                    <div class="eye-bottom"></div>
+                    <div class="face-red"></div>
+                </div>
+                <div class="eye-right">
+                    <div class="eye-circle">
+                        <div class="eye-core"></div>
+                    </div>
+                    <div class="eye-bottom"></div>
+                    <div class="face-red"></div>
+                </div>
+            </div>
+            <div class="nose"></div>
+            <div class="mouth-wrap">
+                <div class="mouth-left"></div>
+                <div class="mouth-right"></div>
+            </div>
+        </div>
+        <div class="ear-wrap">
+            <div class="ear-left"></div>
+            <div class="ear-right"></div>
+        </div>
+    </div>
+</body>
+</html>

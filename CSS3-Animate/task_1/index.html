@@ -8,39 +8,95 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         .main {
-            width: 160px;
-            height: 90px;
-            margin: 0 auto;
+            width: 350px;
+            margin: 90px auto;
         }
 
-        .title-before {
-            font-size: 40px;
-            font-family: "微软雅黑", serif;
+        .title {
+            width: 100%;
+            text-align: center;
+            font-size: 54px;
             font-weight: bold;
+            color: #8c8c8c;
         }
+
+        .line {
+            width: 0;
+            height: 2px;
+            margin: 0 auto;
+            background: #008cfa;
+            transition-duration: 0.4s;
+            transition-timing-function: ease;
+            transition-property: width;
+            transition-delay: 0s;
+        }
+
+        .title-change {
+            width: 100%;
+            text-align: center;
+            font-size: 54px;
+            font-weight: bold;
+            color: #008cfa;
+        }
+
+        .line-change {
+            width: 300px;
+            height: 2px;
+            margin: 0 auto;
+            background: #008cfa;
+            transition-duration: 0.4s;
+            transition-timing-function: ease;
+            transition-property: width;
+            transition-delay: 0s;
+        }
+
 
         .btn {
-
+            display: block;
+            width: 140px;
+            height: 45px;
+            margin: 20px auto;
+            font-size: 25px;
+            font-weight: 500;
+            border-radius: 42px;
+            border: 1px solid #dcdcdc;
+            color: #8c8c8c;
         }
 
-        .title-after {
-
-        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="main">
-            <span class="title-before">前端学院</span>
-            <input class="btn" type="button" value="切换样式" accept="middle">
+            <div id="t" class="title">TonyWang</div>
+            <div id="l" class="line"></div>
+            <input id="btn" class="btn" type="button" value="切换样式" accept="middle">
         </div>
     </div>
 
     <script type="text/javascript">
+        var btn = document.getElementById("btn"),
+            title = document.getElementById("t"),
+            line = document.getElementById("l");
 
+        function change() {
+            if (title.className == "title") {
+                title.className = "title-change";
+                line.className = "line-change";
+            }
+            else {
+                title.className = "title";
+                line.className = "line";
+            }
+        }
+
+        btn.onclick = function () {
+            change();
+        }
     </script>
 </body>
 </html>
