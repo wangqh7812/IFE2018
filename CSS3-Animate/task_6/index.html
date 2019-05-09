@@ -5,19 +5,249 @@
     <title>利用 CSS animation 制作一个炫酷的 Slider</title>
 
     <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        li {
+            list-style: none;
+        }
+
+        .wrap {
+            position: relative;
+            width: 1215px;
+            height: 717px;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+
+        .big-pic {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .big-pic img {
+            position: absolute;
+            width: 1215px;
+            height: 717px;
+            top: 0;
+            left: 0;
+        }
+
+        .small-pic {
+            position: absolute;
+            width: 100%;
+            height: 100px;
+            bottom: 0;
+            left: 0;
+            z-index: 100;
+        }
+
+        .small-pic li {
+            float: left;
+            width: 11.11%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .small-pic li>img {
+            width: 121px;
+            height: 71px;
+        }
+
+        .animation0 {
+            -webkit-animation: move0 2s ease-out;
+            -o-animation: move0 2s ease-out;
+            animation: move0 2s ease-out;
+        }
+
+        .animation1 {
+            -webkit-animation: move1 2s ease-out;
+            -o-animation: move1 2s ease-out;
+            animation: move1 2s ease-out;
+        }
+
+        .animation2 {
+            -webkit-animation: move2 0.8s ease-out;
+            -o-animation: move2 0.8s ease-out;
+            animation: move2 0.8s ease-out;
+        }
+
+        .animation3 {
+            -webkit-animation: move3 0.8s ease-out;
+            -o-animation: move3 0.8s ease-out;
+            animation: move3 0.8s ease-out;
+        }
+
+        .animation4 {
+            -webkit-animation: move4 1s ease-out;
+            -o-animation: move4 1s ease-out;
+            animation: move4 1s ease-out;
+        }
+
+        .animation5 {
+            -webkit-animation: move5 1s ease-out;
+            -o-animation: move5 1s ease-out;
+            animation: move5 1s ease-out;
+        }
+
+        .animation6 {
+            -webkit-animation: move6 1.5s ease-out;
+            -o-animation: move6 1.5s ease-out;
+            animation: move6 1.5s ease-out;
+        }
+
+        .animation7 {
+            -webkit-animation: move7 1.5s ease-out;
+            -o-animation: move7 1.5s ease-out;
+            animation: move7 1.5s ease-out;
+        }
+
+        .animation8 {
+            -webkit-animation: move8 1s ease-out;
+            -o-animation: move8 1s ease-out;
+            animation: move8 1s ease-out;
+        }
+
+        @keyframes move0 {
+            0% {
+                left: -1215px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes move1 {
+            0% {
+                left: 1215px;
+            }
+            100% {
+                left: 0;
+            }
+        }
+
+        @keyframes move2 {
+            0% {
+                transform: scale(0.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes move3 {
+            0% {
+                transform: scale(3);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes move4 {
+            0% {
+                transform: rotate(-360deg) scale(0.1);
+            }
+            100% {
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes move5 {
+            0% {
+                transform: rotate(360deg) scale(0.1);
+            }
+            100% {
+                transform: rotate(0deg) scale(1);
+            }
+        }
+
+        @keyframes move6 {
+            0% {
+                left: -1215px;
+                top: -717px;
+            }
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        @keyframes move7 {
+            0% {
+                left: 1215px;
+                top: 717px;
+            }
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        @keyframes move8 {
+            0% {
+                top: 717px;
+            }
+            80% {
+                top: -100px;
+            }
+            100% {
+                top: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="wrap">
-        <div class="pic">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+        <div id="big-pic" class="big-pic">
+            <img src="images/yuanhua.jpg" alt="放逐之刃">
+            <img src="images/cikexintiao.jpg" alt="刺客信条">
+            <img src="images/xuesejingrui.jpg" alt="血色精锐">
+            <img src="images/tunvlang.jpg" alt="兔女郎">
+            <img src="images/huamulan.jpg" alt="花木兰">
+            <img src="images/dianwanyongzhe.jpg" alt="电玩勇者">
+            <img src="images/limingshizhe.jpg" alt="黎明使者">
+            <img src="images/guanjunzhiren.jpg" alt="冠军之刃">
+            <img src="images/weilaizhanshi.jpg" alt="未来战士">
         </div>
+        <ul id="small-pic" class="small-pic">
+            <li><img src="images/yuanhua.jpg" alt="放逐之刃"></li>
+            <li><img src="images/cikexintiao.jpg" alt="刺客信条"></li>
+            <li><img src="images/xuesejingrui.jpg" alt="血色精锐"></li>
+            <li><img src="images/tunvlang.jpg" alt="兔女郎"></li>
+            <li><img src="images/huamulan.jpg" alt="花木兰"></li>
+            <li><img src="images/dianwanyongzhe.jpg" alt="电玩勇者"></li>
+            <li><img src="images/limingshizhe.jpg" alt="黎明使者"></li>
+            <li><img src="images/guanjunzhiren.jpg" alt="冠军之刃"></li>
+            <li><img src="images/weilaizhanshi.jpg" alt="未来战士"></li>
+        </ul>
     </div>
+
+    <script type="text/javascript">
+        var bigPic = document.getElementById("big-pic");
+        var smallPic = document.getElementById("small-pic");
+
+        var picList = bigPic.getElementsByTagName("img"),
+            smallPicList = smallPic.getElementsByTagName("li");
+        
+        for (var i = 0; i < smallPicList.length; i++) {
+            smallPicList[i].index = i;
+            smallPicList[i].onclick = function () {
+                a = this.index;
+                for (var j = 0; j < picList.length; j++) {
+                    picList[j].style.zIndex = "1";
+                    picList[j].className = "";
+                }
+                picList[a].style.zIndex = "10";
+                picList[a].className = "animation" + a;
+            }
+        } 
+        
+    </script>
 </body>
 </html>
