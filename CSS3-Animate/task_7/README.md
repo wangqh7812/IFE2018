@@ -12,7 +12,7 @@ X 轴的取值范围是 0 到 1，当取值超出范围时 cubic-bezier 将失�
 Y 轴的取值没有规定，当然也毋须过大。
 
 ##input属性
-outline
+outline：当border设置为none的时候，对上焦点后还是有个边框，把outline设置为none，这样就完全消失了
 
 ##CSS函数
 calc()函数：C允许计算 CSS 的属性值，比如动态计算长度值。
